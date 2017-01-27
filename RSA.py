@@ -1,15 +1,13 @@
 import random
+
 p = random.randrange(1, 102, 2)
 q = random.randrange(1, 102, 2)
 n = p * q
-print(n)
+fin = (p-1)*(q-1)
+e = 1%fin
+d = (e**(-1))%fin
 
-if p%2==0 and q%2==0:
-    print("los numeros son pares")
-else:
-    print("Son primos")
+m = input("ingresa un mensaje")
+c = (m**e)%n
 
-if n%2==0:
-    print("n es par")
-else:
-    print("n es primo")
+print("Este es el mensaje encriptado: ", c)
