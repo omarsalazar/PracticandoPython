@@ -11,11 +11,16 @@ def pista(palabra):
     print("La palabra tiene {} letras y {} espacios".format(letras, espacios))
 
 def tiras(palabra):
-    """Verifica que lo que escribiste este en la palabra"""
+    """Verifica que lo que escribiste esté en la palabra"""
     if letra in palabra:
         if letra == palabra:
-            print("¡Haz acertado!")
-            win(turno)
+            if (turno % 2 == 0):
+                print("¡Haz ganado Usuario 2, felicidades!")
+                i = 1
+            else:
+                print("¡Haz ganado Usuario 1, felicidades!")
+                i = 1
+
         else:
             print("Hay {} \"{}\" en la palabra".format(palabra.count(letra), letra))
             #Aquí va a estar la función "acertaste()"
@@ -23,52 +28,41 @@ def tiras(palabra):
         print("No hay \"{}\" en la palabra".format(letra))
         global fallo
         fallo = fallo + 1
-        fallaste(fallo)
+
+        if fallo == 1:
+            print("\"Ahorcado\"")
+            print("    o")
+        elif fallo == 2:
+            print("\"Ahorcado\"")
+            print("    o")
+            print("    |  ")
+        elif fallo == 3:
+            print("\"Ahorcado\"")
+            print("    o")
+            print("   /|  ")
+        elif fallo == 4:
+            print("\"Ahorcado\"")
+            print("    o")
+            print("   /|\ ")
+        elif fallo == 5:
+            print("\"Ahorcado\"")
+            print("    o")
+            print("   /|\ ")
+            print("   /    ")
+        elif fallo == 6:
+            print("\"Ahorcado\"")
+            print("    o")
+            print("   /|\ ")
+            print("   / \  ")
+            print("Haz perdido :C")
+            i = 1
+        
 
 def acertaste(palabra):
     """Imprime las letras que acertaste"""
     #Esta wea esta incompleta :C
     for x in range(len(palabra)):
         espacio = " "
-
-def fallaste(fallo):
-    """Imprime al ahorcado"""
-    if fallo == 1:
-        print("\"Ahorcado\"")
-        print("    o")
-    elif fallo == 2:
-        print("\"Ahorcado\"")
-        print("    o")
-        print("    |  ")
-    elif fallo == 3:
-        print("\"Ahorcado\"")
-        print("    o")
-        print("   /|  ")
-    elif fallo == 4:
-        print("\"Ahorcado\"")
-        print("    o")
-        print("   /|\ ")
-    elif fallo == 5:
-        print("\"Ahorcado\"")
-        print("    o")
-        print("   /|\ ")
-        print("   /    ")
-    elif fallo == 6:
-        print("\"Ahorcado\"")
-        print("    o")
-        print("   /|\ ")
-        print("   / \  ")
-        print("Haz perdido :C")
-        i = 1
-
-def win(turno):
-    """Te felicita cuando ganas"""
-    if (turno % 2 == 0):
-        print("¡Haz ganado Usuario 2, felicidades!")
-        i = 1
-    else:
-        print("¡Haz ganado Usuario 1, felicidades!")
-        i = 1
 
 while (i != 1):
     """
