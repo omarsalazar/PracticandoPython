@@ -1,7 +1,6 @@
 
-palabra = input("Ingresa la palabra a adivinar uwu: ")
+i = 1
 fallo = 0
-i = 0
 turno = 1
 
 def pista(palabra):
@@ -16,10 +15,9 @@ def tiras(palabra):
         if letra == palabra:
             if (turno % 2 == 0):
                 print("¡Haz ganado Usuario 2, felicidades!")
-                i = 1
+                
             else:
-                print("¡Haz ganado Usuario 1, felicidades!")
-                i = 1
+                print("¡Haz ganado Usuario 1, felicidades!") 
 
         else:
             print("Hay {} \"{}\" en la palabra".format(palabra.count(letra), letra))
@@ -55,7 +53,7 @@ def tiras(palabra):
             print("   /|\ ")
             print("   / \  ")
             print("Haz perdido :C")
-            i = 1
+
         
 
 def acertaste(palabra):
@@ -64,20 +62,25 @@ def acertaste(palabra):
     for x in range(len(palabra)):
         espacio = " "
 
-while (i != 1):
+
+
+palabra = input("Ingresa la palabra a adivinar uwu: ")
+
+pista(palabra)
+
+while (i > 0):
     """
     Habrá dos usuarios y dependiendo de el valor 
     del modulo de turno tirará el usuario 1 o 2.
     """
     if (turno % 2 == 0):
         letra = input("Usuario 2: ")
-        tiras(palabra)
+        tiras(palabra) 
         turno += 1
     else:
         letra = input("Usuario 1: ")
         tiras(palabra)
         turno += 1
 
-pista(palabra)
 
 
