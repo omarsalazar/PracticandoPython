@@ -1,4 +1,6 @@
 import uuid
+
+
 class Password:
     contrasena = None
 

@@ -3,11 +3,13 @@ i = 1
 fallo = 0
 turno = 1
 
+
 def pista(palabra):
     """Te da una pista"""
     espacios = palabra.count(' ')
     letras = len(palabra) - espacios
     print("La palabra tiene {} letras y {} espacios".format(letras, espacios))
+
 
 def tiras(palabra):
     """Verifica que lo que escribiste esté en la palabra"""
@@ -15,13 +17,15 @@ def tiras(palabra):
         if letra == palabra:
             if (turno % 2 == 0):
                 print("¡Haz ganado Usuario 2, felicidades!")
-                
+
             else:
-                print("¡Haz ganado Usuario 1, felicidades!") 
+                print("¡Haz ganado Usuario 1, felicidades!")
 
         else:
-            print("Hay {} \"{}\" en la palabra".format(palabra.count(letra), letra))
-            #Aquí va a estar la función "acertaste()"
+            print(
+                "Hay {} \"{}\" en \
+                la palabra".format(palabra.count(letra), letra))
+            """Aquí va a estar la función "acertaste()" """
     else:
         print("No hay \"{}\" en la palabra".format(letra))
         global fallo

@@ -9,5 +9,7 @@ def panagrama(s):
             status = "not pangram"
             break
     return status
+
+
 s = input('')
 print(panagrama(s))

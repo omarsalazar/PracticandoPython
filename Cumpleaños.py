@@ -1,5 +1,5 @@
 # coding=utf-8
-from datetime import datetime, date, time, timedelta
+from datetime import datetime
 
 ahora = datetime.now()
 
@@ -18,9 +18,10 @@ diferencia = fecha2 - fecha1
 diferencia2 = fecha3 - fecha1
 
 
-if( fecha2 > fecha1):
+if(fecha2 > fecha1):
     print("¡Aún no es tu cumpleaños!")
     print("¡Faltan {} días para que cumplas años!".format(diferencia))
 
 else:
-    print("Tu cumpleaños ya fue, ahora tienes {} años uwu y faltan {} para tu cumpleaños".format(edad, diferencia2))
+    print("Tu cumpleaños ya fue, ahora tienes {} años uwu".format(edad))
+    print("y faltan {} para tu cumpleaños".format(diferencia2))
