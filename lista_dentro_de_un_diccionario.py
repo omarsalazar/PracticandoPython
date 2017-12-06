@@ -3,6 +3,7 @@ nombres = {
     'nombre': [],
     'apellido': []
 }
+print ("Para deterlo ingresa \"1\"")
 while a != '1':
     a = input("Ingresa un nombre. ")
     if a == '1':

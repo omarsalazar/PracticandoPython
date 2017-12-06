@@ -1,34 +1,51 @@
 
-i = 1
+centinela = 1
 fallo = 0
 turno = 1
 
 
+def instrucciones():
+    print("Este es un clásico juego de ahorcado. Ingresa una palabra y los otros intentarán adivinarla.\nCreado por Omar Salazar Paz.\n") #noqa
+
+
 def pista(palabra):
-    """Te da una pista"""
     espacios = palabra.count(' ')
     letras = len(palabra) - espacios
     print("La palabra tiene {} letras y {} espacios".format(letras, espacios))
 
 
-def tiras(palabra):
-    """Verifica que lo que escribiste esté en la palabra"""
-    if letra in palabra:
-        if letra == palabra:
-            if (turno % 2 == 0):
-                print("¡Haz ganado Usuario 2, felicidades!")
+def palabraoculta(palabra):
+    secreto = len(palabra) * "-"
+    print("{}".format(secreto))
 
+
+def tiras(palabra):
+    """
+    Verifica que lo que escribiste esté en la palabra 
+    y realiza una acción dependiento de lo que escribiste
+    """
+    if letra in palabra:
+        global fallo
+
+        if letra == palabra:
+            global centinela
+            if (turno % 2 == 0):
+                centinela = 0
+                print("¡Haz ganado Usuario 2, felicidades!")
             else:
+                centinela = 0
                 print("¡Haz ganado Usuario 1, felicidades!")
 
+        elif letra == "":
+            print("¡No ingreses espacios en blanco, solo letras!\nEsto cuenta como fallar.")
+            fallo += 1
+
         else:
-            print(
-                "Hay {} \"{}\" en \
-                la palabra".format(palabra.count(letra), letra))
-            """Aquí va a estar la función "acertaste()" """
+            print("Hay {} \"{}\" en la palabra".format(palabra.count(letra), letra))
+
     else:
         print("No hay \"{}\" en la palabra".format(letra))
-        global fallo
+        
         fallo = fallo + 1
 
         if fallo == 1:
@@ -52,16 +69,18 @@ def tiras(palabra):
             print("   /|\ ")
             print("   /    ")
         elif fallo == 6:
+            centinela = 0
             print("\"Ahorcado\"")
             print("    o")
             print("   /|\ ")
             print("   / \  ")
             print("Haz perdido :C")
 
-        
 
 def acertaste(palabra):
-    """Imprime las letras que acertaste"""
+    """
+    Imprime las letras que acertaste
+    """
     #Esta wea esta incompleta :C
     for x in range(len(palabra)):
         espacio = " "
@@ -70,21 +89,23 @@ def acertaste(palabra):
 
 palabra = input("Ingresa la palabra a adivinar uwu: ")
 
+for x in range(1,10):
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n")
+
+instrucciones()
 pista(palabra)
 
-while (i > 0):
-    """
-    Habrá dos usuarios y dependiendo de el valor 
-    del modulo de turno tirará el usuario 1 o 2.
-    """
-    if (turno % 2 == 0):
-        letra = input("Usuario 2: ")
-        tiras(palabra) 
-        turno += 1
-    else:
-        letra = input("Usuario 1: ")
-        tiras(palabra)
-        turno += 1
-
-
-
+while (centinela > 0):
+    if (centinela == 0 or fallo == 6):
+        print("Juego terminado")
+        break
+    else:    
+        palabraoculta(palabra)
+        if (turno % 2 == 0):
+            letra = input("Usuario 2: ")
+            tiras(palabra) 
+            turno += 1
+        else:
+            letra = input("Usuario 1: ")
+            tiras(palabra)
+            turno += 1
