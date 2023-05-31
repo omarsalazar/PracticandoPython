@@ -6,4 +6,4 @@ for x in range(1, 100):
 	elif x%5== 0:
 		print("Buzz")
 	else:
-		print("{}".format(x))
+		print(x)
